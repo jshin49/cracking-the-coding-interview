@@ -1,0 +1,18 @@
+Import('env', 'include_path', 'libs_path','extraLibPaths', 'commonLibs')
+# toolkit.h is located in this directory, add it to the include path
+lEnv = env.Clone()
+lEnv.Append(CPPPATH=include_path)
+
+includeLibs = ['treesLib']
+libsPaths = list()
+for lib in includeLibs:
+	newLib = '{libpath}/{lib}'.format(libpath=libs_path, lib=lib)
+	print("Libpath > Added Lib >> " + newLib)
+	libsPaths.append(newLib)
+libsPaths.extend(extraLibPaths)
+includeLibs.extend(commonLibs)
+lEnv.Append(LIBPATH=libsPaths)
+lEnv.Append(LIBS=includeLibs)
+
+# Let's declare a library named toolkit, using toolkit.c as its only source
+lEnv.Program('TreesTraining', ['main.cpp'])

@@ -1,4 +1,4 @@
-cracking-the-coding-interview
+Cracking the Coding Interview Exercises
 =============================
 
-Everything used to solve Cracking the Coding Interview 
+Cracking the Coding Interview Exercises

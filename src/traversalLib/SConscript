@@ -1,0 +1,9 @@
+Import('env', 'include_path', 'libs_path','extraLibPaths', 'commonLibs','commonDefines','commonCFlags','commonLFlags')
+# toolkit.h is located in this directory, add it to the include path
+lEnv = env.Clone()
+lEnv.Append(CPPPATH=include_path)
+lEnv.Append(CPPDEFINES=commonDefines)
+lEnv.Append(CCFLAGS=commonCFlags)
+lEnv.Append(LINKFLAGS=commonLFlags)
+# Let's declare a library named toolkit, using toolkit.c as its only source
+lEnv.StaticLibrary('traversalLib', ['traversal.cpp'])

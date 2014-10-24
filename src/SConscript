@@ -1,0 +1,14 @@
+Import('env','include_path','libs_path','extraLibPaths', 'commonLibs','commonDefines','commonCFlags','commonLFlags')
+
+projects = ['algorithms', 'basicAdt', 'graphs', 'sorting', 'traversal', 'trees', 'tries', 'linkedlist']
+
+for subdir in projects:
+	print("Building> "+ subdir + "Lib")
+	folderName = '{subdir}Lib'.format(subdir=subdir)
+	env.SConscript('{folderName}/SConscript'.format(folderName=folderName), exports=['env', 'include_path','libs_path','extraLibPaths', 'commonLibs','commonDefines','commonCFlags','commonLFlags'])
+
+  
+for subdir in projects:
+	print("Building> "+ subdir)
+	env.SConscript('{folderName}/SConscript'.format(folderName=subdir), exports=['env', 'include_path','libs_path','extraLibPaths', 'commonLibs','commonDefines','commonCFlags','commonLFlags'])
+
